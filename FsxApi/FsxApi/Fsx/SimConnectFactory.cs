@@ -6,16 +6,18 @@
     using Config.Enums;
     using Microsoft.FlightSimulator.SimConnect;
 
-    internal static class SimConnectFactory
+    public static class SimConnectFactory
     {
-        internal static SimConnect GetSimConnectObject(FsxConnection connection)
+        private const int WmUserSimconnect = 0x0402;
+
+        public static SimConnect GetSimConnectObject(FsxConnection connection)
         {
             try
             {
                 var mainWindowHandle = Process.GetCurrentProcess().MainWindowHandle;
 
                 // the constructor
-                var simconnect = new SimConnect("User Requests", mainWindowHandle, Constants.WmUserSimconnect, null, 0);
+                var simconnect = new SimConnect("User Requests", mainWindowHandle, WmUserSimconnect, null, 0);
 
                 InitializeSimConnect(simconnect, connection);
 

@@ -62,7 +62,6 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Api\ApiModule.cs" />
     <Compile Include="Fsx\FsxConnection.cs" />
-    <Compile Include="Fsx\Config\Constants.cs" />
     <Compile Include="Fsx\Config\Enums\DataRequest.cs" />
     <Compile Include="Fsx\Config\Enums\Definition.cs" />
     <Compile Include="Fsx\Config\LocationStruct.cs" />
