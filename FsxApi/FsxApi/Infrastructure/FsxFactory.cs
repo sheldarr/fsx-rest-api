@@ -8,7 +8,7 @@
 
     internal static class FsxFactory
     {
-        internal static SimConnect GetSimConnectObject(FsxCommunicator communicator)
+        internal static SimConnect GetSimConnectObject(FsxConnection connection)
         {
             try
             {
@@ -17,7 +17,7 @@
                 // the constructor
                 var simconnect = new SimConnect("User Requests", mainWindowHandle, Constants.WmUserSimconnect, null, 0);
 
-                InitializeSimConnect(simconnect, communicator);
+                InitializeSimConnect(simconnect, connection);
 
                 return simconnect;
 
@@ -30,15 +30,15 @@
         }
 
         // Set up all the SimConnect data definitions and event handlers
-        private static void InitializeSimConnect(SimConnect simconnect, FsxCommunicator fsxCommunicator)
+        private static void InitializeSimConnect(SimConnect simconnect, FsxConnection fscConnection)
         {
             try
             {
                 // listen to quit (from FSX) events
-                simconnect.OnRecvQuit += fsxCommunicator.Fsx_UserClosedFsxEventHandler;
+                simconnect.OnRecvQuit += fscConnection.Fsx_UserClosedFsxEventHandler;
 
                 // listen to exceptions
-                simconnect.OnRecvException += fsxCommunicator.Fsx_ExceptionEventHandler;
+                simconnect.OnRecvException += fscConnection.Fsx_ExceptionEventHandler;
 
                 // getting data
                 // define a data structure for plane informations
@@ -53,7 +53,7 @@
                 simconnect.RegisterDataDefineStruct<PlaneDataStruct>(Definition.Plane);
 
                 // catch a simobject after data request
-                simconnect.OnRecvSimobjectDataBytype += fsxCommunicator.Fsx_ReceiveDataEventHandler;
+                simconnect.OnRecvSimobjectDataBytype += fscConnection.Fsx_ReceiveDataEventHandler;
             }
             catch (COMException)
             {

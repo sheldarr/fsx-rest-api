@@ -6,11 +6,11 @@
 
     public class IndexModule : NancyModule
     {
-        private readonly FsxCommunicator _fsxCommunicator;
+        private readonly FsxConnection _fsxConnection;
 
-        public IndexModule(FsxCommunicator fsxCommunicator)
+        public IndexModule(FsxConnection fsxConnection)
         {
-            _fsxCommunicator = fsxCommunicator;
+            _fsxConnection = fsxConnection;
 
             Get["/"] = parameters =>
             {
@@ -18,7 +18,6 @@
 
                 var response = new
                 {
-                    Code = 200,
                     Message = "OK"
                 };
 
@@ -29,7 +28,7 @@
             {
                 Console.WriteLine("GET /api/fsx");
 
-                var planeData = _fsxCommunicator.GetPlaneData();
+                var planeData = _fsxConnection.GetPlanePosition();
 
                 var response = new
                 {

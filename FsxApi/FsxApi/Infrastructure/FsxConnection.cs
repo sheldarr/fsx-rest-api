@@ -6,14 +6,14 @@
     using Microsoft.FlightSimulator.SimConnect;
     using Model;
 
-    public class FsxCommunicator
+    public class FsxConnection
     {
         // SimConnect object
         private readonly SimConnect _simConnect;
         private bool _receivedMessage;
-        private PlaneData _planeData;
+        private PlanePosition _planePosition;
 
-        public FsxCommunicator()
+        public FsxConnection()
         {
             Console.WriteLine("FSX: Connecting");
 
@@ -30,7 +30,7 @@
             Console.WriteLine("FSX: Connection estabilished");
         }
 
-        public PlaneData GetPlaneData()
+        public PlanePosition GetPlanePosition()
         {
             _simConnect.RequestDataOnSimObjectType(DataRequest.FromBrowser, Definition.Plane, 0, SIMCONNECT_SIMOBJECT_TYPE.USER);
             
@@ -49,7 +49,7 @@
 
             _receivedMessage = false;
 
-            return _planeData;
+            return _planePosition;
         }
 
         internal void Fsx_ReceiveDataEventHandler(SimConnect sender, SIMCONNECT_RECV_SIMOBJECT_DATA_BYTYPE fsxData)
@@ -59,13 +59,10 @@
                 case DataRequest.FromBrowser:
                     var userPlaneData = (PlaneDataStruct)fsxData.dwData[0];
 
-                    _planeData = new PlaneData
+                    _planePosition = new PlanePosition
                     {
-                        Location = new Location
-                        {
-                            Latitude = userPlaneData.Location.Latitude,
-                            Longitude = userPlaneData.Location.Longitude
-                        }
+                        Latitude = userPlaneData.Location.Latitude,
+                        Longitude = userPlaneData.Location.Longitude
                     };
 
                     break;

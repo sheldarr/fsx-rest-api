@@ -61,7 +61,7 @@
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="IndexModule.cs" />
-    <Compile Include="Infrastructure\FsxCommunicator.cs" />
+    <Compile Include="Infrastructure\FsxConnection.cs" />
     <Compile Include="Infrastructure\FsxConfig\Constants.cs" />
     <Compile Include="Infrastructure\FsxConfig\Enums\DataRequest.cs" />
     <Compile Include="Infrastructure\FsxConfig\Enums\Definition.cs" />
@@ -70,7 +70,7 @@
     <Compile Include="Infrastructure\FsxFactory.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="Model\Location.cs" />
-    <Compile Include="Model\PlaneData.cs" />
+    <Compile Include="Model\PlanePosition.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

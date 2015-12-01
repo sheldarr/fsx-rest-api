@@ -26,12 +26,6 @@
                 }
             };
 
-            //var fsx = new Fsx(new ConsoleLogger());
-
-            //var data = fsx.GetPlaneData();
-
-            //Console.ReadLine();
-
             using (var host = new NancyHost(hostConfiguration, baseUri))
             {
                 host.Start();
