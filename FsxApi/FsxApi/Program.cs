@@ -11,7 +11,6 @@
 
             var hostConfiguration = new HostConfiguration
             {
-                RewriteLocalhost = true,
                 UrlReservations = new UrlReservations
                 {
                     CreateAutomatically = true
