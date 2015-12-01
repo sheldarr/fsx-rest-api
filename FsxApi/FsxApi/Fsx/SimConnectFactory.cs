@@ -12,23 +12,14 @@
 
         public static SimConnect GetSimConnectObject(FsxConnection connection)
         {
-            try
-            {
-                var mainWindowHandle = Process.GetCurrentProcess().MainWindowHandle;
+            var mainWindowHandle = Process.GetCurrentProcess().MainWindowHandle;
 
-                // the constructor
-                var simconnect = new SimConnect("User Requests", mainWindowHandle, WmUserSimconnect, null, 0);
+            // the constructor
+            var simconnect = new SimConnect("User Requests", mainWindowHandle, WmUserSimconnect, null, 0);
 
-                InitializeSimConnect(simconnect, connection);
+            InitializeSimConnect(simconnect, connection);
 
-                return simconnect;
-
-            }
-            catch (COMException)
-            {
-            }
-
-            return null;
+            return simconnect;
         }
 
         // Set up all the SimConnect data definitions and event handlers
