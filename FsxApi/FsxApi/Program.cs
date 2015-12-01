@@ -1,16 +1,7 @@
 ﻿namespace FsxApi
 {
     using System;
-    using Interfaces;
     using Nancy.Hosting.Self;
-
-    public class ConsoleLogger : ILogger
-    {
-        public void Log(string message)
-        {
-            Console.WriteLine(message);
-        }
-    }
 
     class Program
     {

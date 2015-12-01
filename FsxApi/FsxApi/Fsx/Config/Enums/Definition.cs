@@ -1,4 +1,4 @@
-﻿namespace FsxApi.Infrastructure.FsxConfig.Enums
+﻿namespace FsxApi.Fsx.Config.Enums
 {
     internal enum Definition
     {

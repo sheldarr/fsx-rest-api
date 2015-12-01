@@ -60,16 +60,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Api\ApiModule.cs" />
+    <Compile Include="Fsx\FsxConnection.cs" />
+    <Compile Include="Fsx\Config\Constants.cs" />
+    <Compile Include="Fsx\Config\Enums\DataRequest.cs" />
+    <Compile Include="Fsx\Config\Enums\Definition.cs" />
+    <Compile Include="Fsx\Config\LocationStruct.cs" />
+    <Compile Include="Fsx\Config\PlaneDataStruct.cs" />
+    <Compile Include="Fsx\SimConnectFactory.cs" />
     <Compile Include="IndexModule.cs" />
-    <Compile Include="Infrastructure\FsxConnection.cs" />
-    <Compile Include="Infrastructure\FsxConfig\Constants.cs" />
-    <Compile Include="Infrastructure\FsxConfig\Enums\DataRequest.cs" />
-    <Compile Include="Infrastructure\FsxConfig\Enums\Definition.cs" />
-    <Compile Include="Infrastructure\FsxConfig\LocationStruct.cs" />
-    <Compile Include="Infrastructure\FsxConfig\PlaneDataStruct.cs" />
-    <Compile Include="Infrastructure\FsxFactory.cs" />
-    <Compile Include="Interfaces\ILogger.cs" />
-    <Compile Include="Model\Location.cs" />
     <Compile Include="Model\PlanePosition.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

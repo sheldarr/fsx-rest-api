@@ -1,4 +1,4 @@
-﻿namespace FsxApi.Infrastructure.FsxConfig
+﻿namespace FsxApi.Fsx.Config
 {
     internal static class Constants
     {

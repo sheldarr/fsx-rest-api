@@ -1,12 +1,12 @@
-﻿namespace FsxApi.Infrastructure
+﻿namespace FsxApi.Fsx
 {
     using System.Diagnostics;
     using System.Runtime.InteropServices;
-    using FsxConfig;
-    using FsxConfig.Enums;
+    using Config;
+    using Config.Enums;
     using Microsoft.FlightSimulator.SimConnect;
 
-    internal static class FsxFactory
+    internal static class SimConnectFactory
     {
         internal static SimConnect GetSimConnectObject(FsxConnection connection)
         {

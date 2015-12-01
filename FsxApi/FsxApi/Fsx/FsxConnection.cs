@@ -1,8 +1,8 @@
-﻿namespace FsxApi.Infrastructure
+﻿namespace FsxApi.Fsx
 {
     using System;
-    using FsxConfig;
-    using FsxConfig.Enums;
+    using Config;
+    using Config.Enums;
     using Microsoft.FlightSimulator.SimConnect;
     using Model;
 
@@ -19,7 +19,7 @@
 
             try
             {
-                _simConnect = FsxFactory.GetSimConnectObject(this);
+                _simConnect = SimConnectFactory.GetSimConnectObject(this);
             }
             catch(Exception)
             {

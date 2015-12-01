@@ -1,4 +1,4 @@
-﻿namespace FsxApi.Infrastructure.FsxConfig
+﻿namespace FsxApi.Fsx.Config
 {
     using System.Runtime.InteropServices;
 

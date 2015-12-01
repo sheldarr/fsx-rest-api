@@ -1,6 +1,6 @@
 ﻿namespace FsxApi
 {
-    using Infrastructure;
+    using Fsx;
     using Nancy;
     using Nancy.TinyIoc;
 
