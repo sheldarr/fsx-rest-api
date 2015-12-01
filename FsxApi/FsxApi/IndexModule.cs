@@ -1,12 +1,17 @@
 ﻿namespace FsxApi
 {
     using System;
+    using Infrastructure;
     using Nancy;
 
     public class IndexModule : NancyModule
     {
-        public IndexModule()
+        private readonly FsxCommunicator _fsxCommunicator;
+
+        public IndexModule(FsxCommunicator fsxCommunicator)
         {
+            _fsxCommunicator = fsxCommunicator;
+
             Get["/"] = parameters =>
             {
                 Console.WriteLine("GET /");
@@ -24,9 +29,7 @@
             {
                 Console.WriteLine("GET /api/fsx");
 
-                var fsxCommunicator = new Fsx(new ConsoleLogger());
-
-                var planeData = fsxCommunicator.GetPlaneData();
+                var planeData = _fsxCommunicator.GetPlaneData();
 
                 var response = new
                 {

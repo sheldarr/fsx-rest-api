@@ -60,7 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Fsx.cs" />
     <Compile Include="IndexModule.cs" />
     <Compile Include="Infrastructure\FsxCommunicator.cs" />
     <Compile Include="Infrastructure\FsxConfig\Constants.cs" />
