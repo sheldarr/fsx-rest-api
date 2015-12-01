@@ -1,7 +1,16 @@
 ﻿namespace FsxApi
 {
     using System;
+    using Interfaces;
     using Nancy.Hosting.Self;
+
+    public class ConsoleLogger : ILogger
+    {
+        public void Log(string message)
+        {
+            Console.WriteLine(message);
+        }
+    }
 
     class Program
     {
@@ -16,6 +25,12 @@
                     CreateAutomatically = true
                 }
             };
+
+            //var fsx = new Fsx(new ConsoleLogger());
+
+            //var data = fsx.GetPlaneData();
+
+            //Console.ReadLine();
 
             using (var host = new NancyHost(hostConfiguration, baseUri))
             {
