@@ -39,8 +39,6 @@
                     SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
                 simconnect.AddToDataDefinition(Definition.Plane, "Plane Longitude", "degrees", 
                     SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
-                simconnect.AddToDataDefinition(Definition.Plane, "Plane Altitude", "meters", 
-                    SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
 
                 // registering plane structure in simconnect
                 simconnect.RegisterDataDefineStruct<PlaneDataStruct>(Definition.Plane);
