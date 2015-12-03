@@ -8,7 +8,6 @@
 
     public class FsxConnection
     {
-        // SimConnect object
         private readonly SimConnect _simConnect;
         private bool _receivedMessage;
         private PlanePosition _planePosition;
@@ -34,7 +33,6 @@
         {
             _simConnect.RequestDataOnSimObjectType(DataRequest.FromBrowser, Definition.Plane, 0, SIMCONNECT_SIMOBJECT_TYPE.USER);
             
-            // ReceiveMessage must be called to trigger the events. 
             do
             {
                 try
