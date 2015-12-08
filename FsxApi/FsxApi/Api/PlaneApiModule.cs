@@ -5,11 +5,11 @@
     using Model;
     using Nancy;
 
-    public class ApiModule : NancyModule
+    public class PlaneApiModule : NancyModule
     {
         private readonly FsxDataRepository _fsxDataRepository;
 
-        public ApiModule(FsxDataRepository fsxDataRepository)
+        public PlaneApiModule(FsxDataRepository fsxDataRepository)
         {
             _fsxDataRepository = fsxDataRepository;
 

@@ -4,27 +4,33 @@
 
     public static class PositionCalculator
     {
-        public static Position CalculatePosition(double latitudeLow, double latitudeHigh, double longitudeLow, double longitudeHigh)
+        public static Position CalculatePosition(double latitudeLow, double latitudeHigh, double longitudeLow, double longitudeHigh, double altitudeIntegral, double altitudeFractional)
         {
             return new Position
             {
-                Latitude = CalculateCoordinate(latitudeLow, latitudeHigh),
-                Longitude = CalculateCoordinate(longitudeLow, longitudeHigh)
+                Latitude = Calculate64BitNumber(latitudeLow, latitudeHigh) * 90.0 / 10001750.0,
+                Longitude = Calculate64BitNumber(longitudeLow, longitudeHigh) * 360.0 / (65536.0 * 65536.0),
+                Altitude = CalculateFloatingPointNumber(altitudeIntegral, altitudeFractional)
             };
         }
 
-        private static double CalculateCoordinate(double coordinateLow, double coordinateHigh)
+        private static double Calculate64BitNumber(double lowBits, double highBits)
         {
-            if (coordinateLow != 0)
+            if (lowBits != 0)
             {
-                coordinateLow = coordinateLow / (65536.0 * 65536.0);
+                lowBits = lowBits / (65536.0 * 65536.0);
             }
-            if (coordinateHigh > 0)
+            if (highBits > 0)
             {
-                return coordinateHigh + coordinateLow;
+                return highBits + lowBits;
             }
 
-            return coordinateHigh - coordinateLow;
+            return highBits - lowBits;
+        }
+
+        private static double CalculateFloatingPointNumber(double altitudeIntegral, double altitudeFractional)
+        {
+            return altitudeIntegral + altitudeFractional / (65536.0 * 65536.0);
         }
     }
 }

@@ -64,7 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Api\ApiModule.cs" />
+    <Compile Include="Api\PlaneApiModule.cs" />
     <Compile Include="Fsx\Calculators\SpeedCalculator.cs" />
     <Compile Include="Fsx\FsxDataRepository.cs" />
     <Compile Include="Fsx\FsxDataOffset.cs" />

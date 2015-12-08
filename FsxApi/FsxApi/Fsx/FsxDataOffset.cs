@@ -6,8 +6,10 @@
         LatitudeLow = 0x0560,
         LongitudeHigh = 0x056C,
         LongitudeLow = 0x0568,
-        TrueAirSpeed = 0x02b8,
-        IndicatedAirSpeed = 0x02bc,
-        VerticalSpeed = 0x02c8
+        AircraftAltitudeIntegral = 0x0574,
+        AircraftAltitudeFractional = 0x0570,
+        TrueAirSpeed = 0x02B8,
+        IndicatedAirSpeed = 0x02BC,
+        VerticalSpeed = 0x02C8
     }
 }

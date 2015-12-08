@@ -24,7 +24,10 @@
                 double longitudeHigh = GetFsxData(FsxDataOffset.LongitudeHigh); 
                 double longitudeLow = GetFsxData(FsxDataOffset.LongitudeLow);
 
-                return PositionCalculator.CalculatePosition(latitudeLow, latitudeHigh, longitudeLow, longitudeHigh);
+                double altitudeIntegral = GetFsxData(FsxDataOffset.AircraftAltitudeIntegral);
+                double altitudeFractional = GetFsxData(FsxDataOffset.AircraftAltitudeFractional);
+
+                return PositionCalculator.CalculatePosition(latitudeLow, latitudeHigh, longitudeLow, longitudeHigh, altitudeIntegral, altitudeFractional);
             });
         }
 
@@ -46,7 +49,7 @@
 
             var errorCode = 0;
 
-            _fsuipc.FSUIPC_Open(Fsuipc.SIM_ANY, ref errorCode);
+            _fsuipc.FSUIPC_Open(Fsuipc.SIM_FSX, ref errorCode);
 
             var result = action();
              
