@@ -1,4 +1,4 @@
-﻿namespace FsxApi.Fsx
+﻿namespace FsxApi.Fsx.Calculators
 {
     using Model;
 

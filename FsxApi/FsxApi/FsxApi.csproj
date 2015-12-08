@@ -68,7 +68,6 @@
     <Compile Include="Fsx\FsxDataRepository.cs" />
     <Compile Include="Fsx\FsxDataOffset.cs" />
     <Compile Include="Fsx\PositionCalculator.cs" />
-    <Compile Include="IndexModule.cs" />
     <Compile Include="Model\Plane.cs" />
     <Compile Include="Model\Position.cs" />
     <Compile Include="Model\Speed.cs" />

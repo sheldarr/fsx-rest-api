@@ -2,8 +2,8 @@
 {
     public class Speed
     {
-        public int TrueAirSpeed { get; set; }
-        public int IndicatedAirSpeed { get; set; }
-        public int VerticalSpeed { get; set; }
+        public double TrueAirSpeed { get; set; }
+        public double IndicatedAirSpeed { get; set; }
+        public double VerticalSpeed { get; set; }
     }
 }

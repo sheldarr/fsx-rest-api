@@ -1,14 +1,12 @@
 ﻿namespace FsxApi.Fsx
 {
     using System;
+    using Calculators;
     using FsuipcSdk;
     using Model;
 
     public class FsxDataRepository
     {
-        private const int AnyFsVersion = 0;
-        private const int FsSpeedMultiplier = 128;
-
         private readonly Fsuipc _fsuipc;
 
         public FsxDataRepository(Fsuipc fsuipc)
@@ -32,11 +30,13 @@
 
         public Speed GetPlaneSpeed()
         {
-            return FsxOperation(() => new Speed
+            return FsxOperation(() =>
             {
-                TrueAirSpeed = GetFsxData(FsxDataOffset.TrueAirSpeed) / FsSpeedMultiplier,
-                IndicatedAirSpeed = GetFsxData(FsxDataOffset.IndicatedAirSpeed) / FsSpeedMultiplier,
-                VerticalSpeed = GetFsxData(FsxDataOffset.VerticalSpeed) / FsSpeedMultiplier
+                var trueAirSpeed = GetFsxData(FsxDataOffset.TrueAirSpeed);
+                var indicatedAirSpeed = GetFsxData(FsxDataOffset.IndicatedAirSpeed);
+                var verticalSpeed = GetFsxData(FsxDataOffset.VerticalSpeed);
+
+                return SpeedCalculator.CalculateSpeed(trueAirSpeed, indicatedAirSpeed, verticalSpeed);
             });
         }
 
@@ -46,7 +46,7 @@
 
             var errorCode = 0;
 
-            _fsuipc.FSUIPC_Open(AnyFsVersion, ref errorCode);
+            _fsuipc.FSUIPC_Open(Fsuipc.SIM_ANY, ref errorCode);
 
             var result = action();
              
