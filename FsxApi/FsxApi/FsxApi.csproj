@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FsxApi</RootNamespace>
     <AssemblyName>FsxApi</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -65,14 +65,11 @@
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Api\ApiModule.cs" />
-    <Compile Include="Fsx\FsxConnection.cs" />
-    <Compile Include="Fsx\Config\Enums\DataRequest.cs" />
-    <Compile Include="Fsx\Config\Enums\Definition.cs" />
-    <Compile Include="Fsx\Config\LocationStruct.cs" />
-    <Compile Include="Fsx\Config\PlaneDataStruct.cs" />
-    <Compile Include="Fsx\SimConnectFactory.cs" />
+    <Compile Include="Fsx\FsxDataRepository.cs" />
+    <Compile Include="Fsx\FsxDataOffset.cs" />
+    <Compile Include="Fsx\PositionCalculator.cs" />
     <Compile Include="IndexModule.cs" />
-    <Compile Include="Model\PlanePosition.cs" />
+    <Compile Include="Model\Position.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

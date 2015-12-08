@@ -10,7 +10,7 @@
         {
             base.ConfigureApplicationContainer(container);
 
-            container.Register<FsxConnection>().AsSingleton();
+            container.Register<FsxDataRepository>().AsSingleton();
         }
     }
 }

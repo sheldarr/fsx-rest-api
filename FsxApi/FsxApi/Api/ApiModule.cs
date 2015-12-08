@@ -6,17 +6,17 @@
 
     public class ApiModule : NancyModule
     {
-        private readonly FsxConnection _fsxConnection;
+        private readonly FsxDataRepository _fsxDataRepository;
 
-        public ApiModule(FsxConnection fsxConnection)
+        public ApiModule(FsxDataRepository fsxDataRepository)
         {
-            _fsxConnection = fsxConnection;
+            _fsxDataRepository = fsxDataRepository;
 
             Get["/api/planePosition"] = parameters =>
             {
                 Console.WriteLine("GET /api/planePosition");
 
-                var planePosition = _fsxConnection.GetPlanePosition();
+                var planePosition = _fsxDataRepository.GetPlanePosition();
 
                 return Response.AsJson(planePosition);
             };
