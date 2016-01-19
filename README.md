@@ -1,2 +1,2 @@
 # FsxApi
-Simple .NET application for sharing FSX parameters via REST API
+REST API for Microsoft Flight Simulator X
